@@ -1,0 +1,11 @@
+# --- scenarios properties
+scenario default static expression ""
+scenario Equal_Dose static expression ""
+scenario oneset static expression ""
+scenario Binset3e12 static expression ""
+scenario DV5 static expression ""
+scenario Varyedeepn static expression ""
+scenario varyedphos static expression ""
+scenario EDP1500 static expression ""
+scenario EDeepp1400 static expression ""
+scenario EDeepp1200 static expression ""

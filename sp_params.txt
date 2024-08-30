@@ -1,0 +1,168 @@
+set version 6
+# Parameters adapted from Silvaco parameter file
+# Base wafer thickness
+set thick 10
+# Epi Thickness - not implemented - 
+set TEPI 10.
+# half dimension to active edge
+set xwidth  50.
+# full half width = xwidth+xedge
+set xedge 10.
+# full device extent
+set ylow [expr -($xwidth+$xedge)]
+set yhigh [expr ($xwidth+$xedge)]
+set xlow 0
+set xhigh $thick
+# Deep implant and trench parameters
+set inset 0
+set pinset 5
+set binset 10
+# offset to trench
+set dtrench 5
+# width of trench
+set wtrench 5
+# 
+set Dump 1
+
+# number of DC pixels (=1 for AC LGAD)
+set npix 3
+
+# Switches
+# switch for SRP profile
+set SRP 0
+# Switch for deep/reach-through
+set Deep 0
+# switch for JTE
+set JTE 0
+# switch for gain layer
+set glayer 0
+# Switch for Trench
+set STrench 0
+# switch for pstop
+set SPStop 1
+
+# AC=0 or DC=1 LGAD - sets extent of top implant + electrodes
+set LGType 1
+# AC LGAD Deep=0, JTE=1, npix=1
+if {$LGType == 0} {
+  set npix 1
+  set Deep 0
+  set JTE 1
+}
+
+set PSWid_2 0.5
+
+# number of AC pixels
+set npixac 3
+# half space between pixels if DJ.
+set dwell [expr $npix == 1 ? 0: 4]
+# Inset of aluminum from edge of n-well
+set alovr 8
+# Half Width of AC electrodes
+set acpdwid 7
+
+# JTE width
+set jtewidth 3.
+# contact half-width
+set chwid .5
+
+# added parameters for M2
+set oxm2 0.12
+set tm2 0.12
+# field plate hjalf width
+set m2_fpwid_2 2
+# contact half width
+set m2wid_2 2
+
+
+# compensate for no JTE
+set jtewidth [expr $JTE == 1 ? $jtewidth: 0]
+# Thicknesses
+set ljte 25.0
+set metalext 15.0
+set tnpp 1.0
+set tnp 1.0
+set tp 1.0
+set tox 0.310
+set tdiel 0.310
+set tmetal .2
+set tppp 1.0
+
+# Concentrations
+# set subconc @subconc@
+set subconc 1E19
+# Epitaxy Concentration
+set epiconc 1E14
+# base epi doping
+set cbase 1E14
+# n++ (also jte)
+set nppconc 4.5e15
+#  Anode concentration
+set npconc 2.e13
+# ??set pconc @pconc@ - use value from silvaco of 5E13
+set pconc 1.1E12
+set pppconc 1.e13
+set jteconc 5.0e13
+set pconc 4.5e15
+# guard ring
+set grconc 4.5e15
+set acconc 2.0e13
+set glconc 2.0E12
+set xedge 5.
+# deep junction
+set ddboron 1.5E12
+set ddphos  1.5E12
+# pstop dose ???? - check this
+set psconc 5e11
+
+set tilt 7
+
+# Energies
+set nppenergy 60
+set npenergy 55
+set penergy 400
+#set jteenergy 60
+set jteenergy1 100
+set jteenergy2 200
+# Deep junction implants
+set edboron 2200
+set edphos 2000
+
+set pppenergy 20
+set grenergy 60
+set pstopenergy 80
+set acenergy 40
+set glenergy 400
+
+set quick 0
+# Anneal times and temperatures
+if {$quick == 0} {
+set difftime 30<s>
+set difftemp 900
+set annltime 20<s>
+set annltemp 1000
+set Aannltime 1800<s>
+set Aannltemp 900
+set Bannltime 60<s>
+set Bannltemp 1100
+set Dannltime 30<s>
+set Dannltemp 700
+set Gannltime 600<s>
+set Gannltemp 850
+} else {
+set difftime 1<s>
+set difftemp 900
+set annltime 1<s>
+set annltemp 1000
+set Aannltime 1<s>
+set Aannltemp 900
+set Bannltime 1<s>
+set Bannltemp 1100
+set Dannltime 1<s>
+set Dannltemp 700
+set Gannltime 1<s>
+set Gannltemp 850
+}
+
+
+

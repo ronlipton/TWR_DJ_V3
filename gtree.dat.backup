@@ -1,0 +1,76 @@
+# Copyright (C) 1994-2019 Synopsys Inc.
+# swbtree vcurrent
+
+# --- simulation flow
+DJ_sprocess sprocess "" {}
+DJ_sprocess EDeepp "2200" {1500}
+DJ_sprocess EDeepn "1800" {2000}
+DJ_sprocess DDeepn "1.5e12" {3.0e12}
+DJ_sprocess DDeepp "1.5e12" {3.0E12}
+DJ_sdevice sdevice "" {}
+DJ_svisual svisual "" {}
+DJ_MIP sdevice "" {}
+DJ_MIP DV "5" {5}
+# --- variables
+variable Vmin "-300"
+# --- scenarios and parameter specs
+scenario default EDeepp ""
+scenario default EDeepn ""
+scenario default DDeepn ""
+scenario default DDeepp ""
+scenario default DV ""
+scenario Equal_Dose EDeepp ""
+scenario Equal_Dose EDeepn ""
+scenario Equal_Dose DDeepn ""
+scenario Equal_Dose DDeepp ""
+scenario Equal_Dose DV ""
+scenario oneset EDeepp ""
+scenario oneset EDeepn ""
+scenario oneset DDeepn ""
+scenario oneset DDeepp ""
+scenario oneset DV ""
+scenario Binset3e12 EDeepp ""
+scenario Binset3e12 EDeepn ""
+scenario Binset3e12 DDeepn ""
+scenario Binset3e12 DDeepp ""
+scenario Binset3e12 DV ""
+scenario DV5 EDeepp ""
+scenario DV5 EDeepn ""
+scenario DV5 DDeepn ""
+scenario DV5 DDeepp ""
+scenario DV5 DV ""
+scenario Varyedeepn EDeepp ""
+scenario Varyedeepn EDeepn ""
+scenario Varyedeepn DDeepn ""
+scenario Varyedeepn DDeepp ""
+scenario Varyedeepn DV ""
+scenario varyedphos EDeepp ""
+scenario varyedphos EDeepn ""
+scenario varyedphos DDeepn ""
+scenario varyedphos DDeepp ""
+scenario varyedphos DV ""
+scenario EDP1500 EDeepp ""
+scenario EDP1500 EDeepn ""
+scenario EDP1500 DDeepn ""
+scenario EDP1500 DDeepp ""
+scenario EDP1500 DV ""
+scenario EDeepp1400 EDeepp ""
+scenario EDeepp1400 EDeepn ""
+scenario EDeepp1400 DDeepn ""
+scenario EDeepp1400 DDeepp ""
+scenario EDeepp1400 DV ""
+scenario EDeepp1200 EDeepp ""
+scenario EDeepp1200 EDeepn ""
+scenario EDeepp1200 DDeepn ""
+scenario EDeepp1200 DDeepp ""
+scenario EDeepp1200 DV ""
+# --- simulation tree
+0 1 0 {} {default DV5 EDP1500} 0
+1 2 1 {1500} {default DV5 EDP1500} 0
+2 3 2 {2000} {default DV5 EDP1500} 0
+3 4 3 {3.0e12} {default DV5 EDP1500} 0
+4 5 4 {3.0E12} {default DV5 EDP1500} 0
+5 6 5 {} {default DV5 EDP1500} 0
+6 7 6 {} {default DV5 EDP1500} 0
+7 8 7 {} {default DV5 EDP1500} 0
+8 9 8 {5} {default DV5 EDP1500} 0
